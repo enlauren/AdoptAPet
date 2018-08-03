@@ -1,0 +1,15 @@
+{% extends '::base_no_sidebar.html.twig' %}
+
+{% block main %}
+
+    <div class="menu">
+        <ul>
+            <li>
+                <a href="{{ path('admin.classifieds.list') }}">Classifieds List</a>
+            </li>
+        </ul>
+    </div>
+
+    {% block main_admin %}
+    {% endblock %}
+{% endblock %}

@@ -1,0 +1,12 @@
+services:
+    App\AppBundle\Services\Paginator:
+        class: App\AppBundle\Services\Paginator
+        arguments: ['@knp_paginator', '@request_stack']
+
+    App\AppBundle\DataFixtures\CustomProvider:
+        tags:
+            - { name: hautelook_alice.faker.provider }
+
+    Mailgun\Mailgun:
+        arguments:
+            $apiKey: '%MAILGUN_API_KEY%'

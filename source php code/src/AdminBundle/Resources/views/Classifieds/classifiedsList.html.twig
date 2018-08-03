@@ -1,0 +1,46 @@
+{% extends '@Admin/Dashboard/dashboard.html.twig' %}
+
+{% block main_admin %}
+    <a href="{{ path('admin.classifieds.list', {'status': 'pending'}) }}" class="btn btn-warning">Show only pending</a>
+    <a href="{{ path('admin.classifieds.list') }}" class="btn btn-success">Show all</a>
+
+    <table class="table table-striped">
+        <tr>
+            <td>#</td>
+            <td>title</td>
+            <td>User</td>
+            <td>status</td>
+            <td>Date</td>
+            <td>Actions</td>
+        </tr>
+
+        {% for classified in classifieds %}
+            <tr>
+                <td>{{ classified.id }}</td>
+                <td>{{ classified.title }}</td>
+                <td>{{ classified.user.email }}</td>
+                <td>
+                    {% if classified.isApproved is same as (true) %}
+                        <span class="label label-success">approved</span>
+                    {% elseif classified.isApproved is same as (false) %}
+                        <span class="label label-danger">rejected</span>
+                    {% else %}
+                        <span class="label label-warning">pending</span>
+                    {% endif %}
+                    {% if classified.canonical %}
+                        <span class="label label-warning">has canonical</span>
+                    {% endif %}
+                </td>
+                <td>
+                    {{ classified.getPrettyCreatedAt|ago }}
+                </td>
+                <td>
+                    <a href="{{ path('admin.classifieds.edit', {'id': classified.id}) }}">Edit</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    {{ knp_pagination_render(classifieds) }}
+
+{% endblock %}

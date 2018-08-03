@@ -1,0 +1,9 @@
+{% extends '::base.html.twig' %}
+
+{% block main %}
+    <p>{{ 'Congrats %email%, your account is now activated'|trans({'%email%': user.email}) }}</p>
+
+    {% if targetUrl %}
+        <p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>
+    {% endif %}
+{% endblock %}

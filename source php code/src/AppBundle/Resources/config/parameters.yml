@@ -1,0 +1,3 @@
+parameters:
+    per_page_results: 21
+    allow_disqusfb_comments: true

@@ -1,0 +1,126 @@
+<div class="breadcrumbs">
+    <a href="{{ path('home') }}" title="Adopta un Suflet">Adopta un suflet</a> /
+
+    {% for city in this.cities %}
+         {{ city|view('breadcrumbs_link') }} /
+    {% endfor %}
+
+    {{ this.type|view('link') }} /
+    {{ this.title }}
+</div>
+
+<h1>{{ this.title }}
+    {% if this.isExpired %}
+        <span class="label label-success">{% trans %}adoptat{% endtrans %}</span>
+    {% endif %}
+</h1>
+
+<div class="row content">
+    <div class="col-sm-12 col-md-12 col-lg-6">
+        <p>{{ this.description|raw }}</p>
+        {% include 'share_buttons.html.twig' %}
+    </div>
+    <div class="col-lg-6 col-md-12 col-sm-12">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="word-wrap: break-word">
+                <b>Detalii contact:</b>
+                {% if this.isExpired %}
+                    <div class="alert alert-danger">
+                        {% trans %}Anuntul este expirat. Din acest motiv datele de contact nu mai sunt afisate.{% endtrans %}
+                    </div>
+                {% else %}
+                    {% if this.user.email %}
+                        <p>{% trans with {'%email%': this.user.email} %}Email: %email%{% endtrans %}</p>
+                    {% endif %}
+                    <p>{% trans with {'%phone%': this.user.phone} %}Telefon: %phone%{% endtrans %}</p>
+                {% endif %}
+
+                <p>{% trans %}Localitate:{% endtrans %}
+                    {% if this.cities|length > 0 %}
+                        {{ this.cities|view('link_labels') }}
+                    {% endif %}
+                </p>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <div class="well" style="line-height: 2; word-wrap: break-word">
+                    <form action="{{ path('adoptat', {'id': this.id}) }}" method="post" style="text-align: right">
+                            {{ this.type|view('label') }}
+                            &nbsp;
+                            <span class="label label-info">
+                                {% if this.isFemale %}
+                                    Femela
+                                {% elseif this.isMale %}
+                                    Mascul
+                                {% endif %}
+                            </span>
+                        <br />
+
+                        {% if this.hasAuthor %}
+                            <i class="glyphicon glyphicon-user"></i>
+                            <a href="{{ this.user|url }}">
+                                {{ this.user.email }}
+                            </a><br />
+                        {% endif %}
+
+                        <span class="label label-primary">
+                            {{ this.getPrettyCreatedAt|ago }}
+                        </span>
+
+                        <br />
+                        {% trans with {'%views%': this.getViews} %}%views% vizualizari{% endtrans %}
+                        <br />
+
+                        <a href="#disqus_thread"></a>
+                        {% if not this.isExpired %}
+                        <button type="submit" class="btn btn-warning btn-xs" onclick="return confirm('{% trans %}Confirma marcarea anuntului ca expirat?{% endtrans %}');">
+                            <i class="glyphicon glyphicon-warning-sign"></i>
+                            {% trans %}set as adopted{% endtrans %}
+                        </button>
+                        {% endif %}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'ads/single_under_description.html.twig' %}
+
+{% if this.images|length > 0 %}
+    <h2>Imagini <i>{{ this.title }}</i></h2>
+    <div class="popup-gallery id="box_container">
+        {{ this.images|view }}
+    </div>
+{% else %}
+    <h3>Anuntul nu are imagini.</h3>
+{% endif %}
+
+<div class="clearfix"></div>
+
+{% if this.hasAllowedComments %}
+    {% if not this.canReceiveMessages %}
+    <div class="row">
+        <div class="col-sm-12">
+            {% include '::partials.comments.html.twig' %}
+        </div>
+    </div>
+    {% endif %}
+
+    <h2>Comentarii <i>{{ this.title }}</i></h2>
+    <div class="row">
+        <div class="col-md-6 col-xs-12" id="disqus">
+            <div id="disqus_thread"></div>
+        </div>
+        <div class="col-md-6 col-xs-12" id="fbcomm">
+            <div class="fb-comments" data-href="{{ this|url({}, true)}}" data-width="438" data-numposts="5"></div>
+        </div>
+    </div>
+{% else %}
+    <h3>Comentariile au fost dezactivate pentru acest anunt.</h3>
+{% endif %}
+
+<div class="alert alert-info">
+    <b>{% trans %}Atentie!{% endtrans %}</b>
+    <p>{% trans %}Inainte sa contactati persoana de contact din anunt va rugam sa verificati daca anuntul este expirat sau nu. Un anunt expirat va avea in titlu cuvantul "Adoptat" pe fundal verde. Un anunt marcat ca expirat nu va afisa datele de contact.{% endtrans %}</p>
+    <p>{% trans %}Daca ati gasit un anunt care nu mai este valabil si care nu este marcat ca atare, va rugam sa marcati anuntul ca expirat. In acest mod, putem tine evidenta anunturilor si putem promova mai eficient anunturile cu animale de companie inca neadoptate, pentru a grabi procesul de gasire a unui stapan si de adoptie.{% endtrans %}</p>
+</div>

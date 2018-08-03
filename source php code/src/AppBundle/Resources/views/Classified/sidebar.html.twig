@@ -1,0 +1,15 @@
+{% if this.hasThumb %}
+<div class="item col-sm-12">
+    <div class="thumbnail render">
+
+        {% if this.isExpired %}
+            <div class="ribbon-wrapper-green"><div class="ribbon-green">adoptat</div></div>
+        {% endif %}
+
+        {{ this.thumb|view('thumb') }}
+        <div class="caption">
+            <a href="{{ this|url }}" title="{{ this.getTitle }}" class="link_render">{{ this.getTitle }}</a>
+        </div>
+    </div>
+</div>
+{% endif %}

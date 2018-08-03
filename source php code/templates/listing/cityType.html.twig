@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+{% block main %}
+
+    <div class="breadcrumbs">
+        <a href="{{ path('home') }}" title="{% trans %}Adopta un suflet{% endtrans %}">
+            {% trans %}Adopta un suflet{% endtrans %}
+        </a>
+        /
+        <a href="{{ type|url }}" title="{% trans with {'%type%': type.name} %}Adoptii din %type%{% endtrans %}">
+            {% trans with {'%type%': type.name} %}Adopt from category %type%{% endtrans %}
+        </a>
+        /
+        <a href="{{ city|url }}" title="{% trans with {'%city%': city.name} %}Adoptii din %city%{% endtrans %}">
+            {% trans with {'%city%': city.name} %}Adoptii din %city%{% endtrans %}
+        </a>
+        /
+        {% trans with {'%city%': city.name, '%type%': type} %}Adoptii %type% din %city%{% endtrans %}
+    </div>
+
+    <h1>
+        {% trans with {'%city%': city.name, '%type%': type} %}Adoptii %type% din %city%{% endtrans %}
+        {% if app.request.get('page') %}
+             {% trans with {'%page%': app.request.get('page')} %}
+                - pagina %page%
+            {% endtrans %}
+        {% endif %}
+    </h1>
+    {% include "listing/render.html.twig" %}
+{% endblock %}

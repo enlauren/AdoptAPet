@@ -1,0 +1,12 @@
+App\AppBundle\Entity\Cabinet:
+    medical_center_{1..100}:
+        title: '<sentence(6)>'
+        description: '<text()>'
+        address: '<address()>'
+        schedule: '<date()>'
+        website: '<domainName()>'
+        phone: '<phoneNumber()>'
+        email: '<email()>'
+        nonStop: '<boolean()>'
+        user: '@user*'
+        city: '@city*'

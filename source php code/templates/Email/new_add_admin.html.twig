@@ -1,0 +1,19 @@
+Ati adaugat un anunt nou pe site-ul: <a href="{{ path('home') }}">adoptaunsuflet.ro</a>.
+<br />
+<br />
+
+Classified title: {{ classified.title }} <br />
+Classified description: {{ classified.description }} <br />
+Email: {{ classified.user.email }} <br />
+Phone: {{ classified.user.phone }}
+
+<br /><br />
+
+<a href="{{ app.request.scheme ~'://' ~ app.request.httpHost ~ path('classified.approve', {'id': classified.id, 'token': classified.token}) }}">approve</a>
+--
+<a href="{{ app.request.scheme ~'://' ~ app.request.httpHost ~ path('classified.reject', {'id': classified.id, 'token': classified.token}) }}">reject</a>
+
+<br />
+<br />
+Va multumim,<br />
+Echipa Adopta un Suflet.ro

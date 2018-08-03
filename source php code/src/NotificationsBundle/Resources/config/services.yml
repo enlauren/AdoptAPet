@@ -1,0 +1,5 @@
+services:
+    event_consumer:
+        class: App\NotificationsBundle\Consumer\NotificationsSenderConsumer
+        arguments:
+            - '@mailer'

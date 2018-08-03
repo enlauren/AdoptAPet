@@ -1,0 +1,25 @@
+App\UserBundle\Entity\User:
+    user_{1..10}:
+        username: '<username()>'
+        email: '<email()>'
+        password: '<password()>'
+        createdAt: '<dateTimeBetween("-1 year", "now")>'
+        updatedAt: '<dateTimeBetween($createdAt, "now")>'
+        phone: '<phoneNumber()>'
+        active: 1
+        salt: <password()>
+
+App\AppBundle\Entity\Classified:
+    classified_{1..1000}:
+        title: '<name()>'
+        type: '@type_*'
+        description: '<text()>'
+        createdAt: '<dateTimeBetween("-1 year", "now")>'
+        updatedAt: '<dateTimeBetween($createdAt, "now")>'
+        email: '<email()>'
+        phone: '<phoneNumber()>'
+        expired: 0
+        views: '<numberBetween(0, 1000)>'
+        user: '@user*'
+        cities: '<randomCities()>'
+        gender: '<randomElement($array = array ("m","f"))>'

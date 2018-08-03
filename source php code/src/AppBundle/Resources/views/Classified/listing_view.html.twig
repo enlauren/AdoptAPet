@@ -1,0 +1,25 @@
+<div class="item col-xs-12 col-sm-6 col-md-4 col-lg-4">
+    <div class="thumbnail render">
+
+        {% if this.isExpired %}
+            <div class="ribbon-wrapper-green"><div class="ribbon-green">adoptat</div></div>
+        {% endif %}
+
+        {% if this.hasThumb %}
+            {{ this.thumb|view('thumb') }}
+        {% endif %}
+
+        <div class="caption">
+            <a href="{{ this|url }}" title="{{ this.getTitle }}" class="link_render">{{ this.getTitle }}</a>
+            <p>{{ this.getShortDescription|raw }}</p>
+
+                <span class="label label-info">
+                    {{ this.getPrettyCreatedAt|ago }}
+                </span>
+            {% for city in this.getCities %}
+                <span class="label label-success">{{ city.getName }}</span>
+            {% endfor %}
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>

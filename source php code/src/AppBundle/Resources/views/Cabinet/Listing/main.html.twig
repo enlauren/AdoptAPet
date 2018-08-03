@@ -1,0 +1,7 @@
+<div class="row">
+    {% for one in many %}
+        <div class="col-sm-4">
+            {{ one|view('single_listing') }}
+        </div>
+    {% endfor %}
+</div>

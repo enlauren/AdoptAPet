@@ -1,0 +1,375 @@
+body {
+    background-color: whitesmoke;
+    /* background-image: url("img/anim_pattern_2.jpg"); */
+}
+
+.container {
+    margin: 0 auto;
+    width: 1300px;
+}
+
+/*  Top navigation   ************************************************** */
+.navbar {
+    border-top-style: solid;
+    border-right-style: solid;
+    border-left-style: solid;
+    border-width: 2px;
+    box-shadow: 6px 6px 12px rgba(117, 117, 117, 0.05);
+    border-color: rgb(242, 242, 248);
+    background: linear-gradient(180deg, rgb(248, 248, 255), rgb(254, 254, 255));
+    border-radius: 4px;
+    margin-top: 0;
+    padding: 0;
+}
+
+.navbar .navbar-items {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-item {
+    cursor: pointer;
+    padding: 12px 12px;
+}
+
+.navbar-items .home {
+    padding-right: 24px;
+    padding-left: 24px;
+    border-right-style: solid;
+    border-width: 2px;
+    border-color: rgb(242, 242, 248);
+}
+
+.navbar-items .adopt {
+    border-right-style: solid;
+    border-width: 2px;
+    border-color: rgb(242, 242, 248);
+}
+
+.navbar-items .city {
+    border-right-style: solid;
+    border-width: 2px;
+    border-color: rgb(242, 242, 248);
+}
+
+.navbar-items .vetShops {
+    border-right-style: solid;
+    border-width: 2px;
+    border-color: rgb(242, 242, 248);
+}
+
+.navbar-items .add {
+    padding-left: 8.2%;
+    padding-right: 5%;
+    border-right-style: solid;
+    border-width: 2px;
+    border-color: rgb(242, 242, 248);
+}
+
+.navbar-items .account {
+    padding-left: 16px;
+}
+
+.add .adoptPost {
+    margin-left: 12px;
+}
+
+.adopt a {
+    padding: 0px 24px 0px 6px;
+}
+
+.city a {
+    padding: 0 12px 0 12px;
+}
+
+.navbar-items .search {
+    padding: 16px 24px 6px 24px;
+    border-right-style: solid;
+    border-width: 2px;
+    border-color: rgb(242, 242, 248);
+}
+
+.navbar-item i {
+    cursor: pointer;
+}
+
+.add button {
+    padding: 3px 24px 3px 24px;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 6px;
+    font-family: "Hind Vadodara", sans-serif;
+    text-decoration: none;
+    outline: none;
+    font-stretch: expanded;
+    font-weight: 500;
+}
+
+.adoptPost {
+    background-color: rgb(240, 133, 225);
+    color: white;
+}
+
+.addVetShop {
+    background-color: rgb(231, 153, 35);
+    color: white;
+}
+
+.navbar-item a,
+.navbar-item {
+    font-family: "Hind Vadodara", sans-serif;
+    text-decoration: none;
+    outline: none;
+    color: rgb(99, 99, 99);
+    font-weight: 500;
+}
+
+/*  Content  ***************************************************  */
+section {
+    border-radius: 6px;
+    box-shadow: 6px 6px 12px rgba(117, 117, 117, 0.05);
+    background-color: hsl(0, 0%, 98%);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin: 20px 0 0 0;
+    padding: 0 0 0 0;
+    align-items: stretch;
+}
+
+.nav-content {
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    background-color: rgb(255, 176, 29);
+    order: 1;
+    width: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.nav-content div {
+    border-right: 4px solid rgb(255, 176, 29);
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    padding: 6px;
+}
+
+.nav-content .svg-dog {
+    margin-top: 280px;
+}
+.nav-content .active {
+    background-color: whitesmoke;
+}
+
+.content {
+    order: 2;
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.content .pagination {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    order: 3;
+}
+
+.sidebar {
+    order: 3;
+    width: 20%;
+}
+
+.content .content-ads {
+    order: 1;
+    padding: 1% 12%;
+}
+.sidebar-info button {
+    padding: 8px 8px 8px 8px;
+    font-size: 0.9rem;
+    border-width: 2px;
+    border-radius: 6px;
+    font-family: "Open Sans", sans-serif;
+    text-decoration: none;
+    outline: none;
+    font-stretch: expanded;
+    font-weight: normal;
+    width: 99%;
+}
+
+.info-button1 {
+    padding-top: 8px;
+}
+
+.info-button2 {
+    padding-top: 32px;
+}
+
+.info-button1 .adoptPost {
+    border-color: rgb(167, 185, 245);
+    background-color: rgb(142, 165, 240);
+}
+
+.info-button2 .addVetShop {
+    border-color: rgb(87, 207, 167);
+    background-color: rgb(88, 185, 88);
+}
+
+.content-ads img {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+.link-adopt-cat,
+.link-adopt-dog,
+.link-facebook-page {
+    padding-top: 8%;
+}
+
+.link-adopt-dog img,
+.link-adopt-cat img {
+    width: 96%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 3px;
+}
+
+.link-facebook-page iframe {
+    padding-left: 2px;
+    width: 80%;
+    border: none;
+    overflow: hidden;
+    width: 96%;
+    height: 220px;
+}
+
+.content .content-main {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    padding: 2%;
+    order: 2;
+}
+
+/* main posts area ********************************************** */
+
+.content-main .posts {
+    box-shadow: 6px 6px 12px rgba(117, 117, 117, 0.05);
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 28.5%;
+    padding: 1%;
+    margin-bottom: 3%;
+    position: relative;
+}
+
+.posts a {
+    font-family: "Hind Vadodara", sans-serif;
+    text-decoration: none;
+    color: rgb(92, 92, 92);
+}
+
+.posts img {
+    width: 100%;
+}
+.posts h4 {
+    font-weight: normal;
+    font-size: 1.2rem;
+    color: rgb(122, 122, 255);
+    margin: 0;
+    padding: 0;
+}
+
+.posts div {
+    width: 100%;
+    padding: 8px 0 0 0;
+}
+
+.post-info span {
+    font-size: 0.86rem;
+    color: white;
+    box-sizing: border-box;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.post-info .label-time {
+    background-color: rgb(194, 183, 253);
+}
+.post-info .label-loc {
+    background-color: rgb(89, 202, 99);
+}
+
+/* pagination component ********************************** */
+
+.content .pagination {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin-bottom: 40px;
+}
+
+.pagination div {
+    border-radius: 4px;
+    border: 4px solid rgb(221, 215, 255);
+    border-width: 1px;
+    padding: 4px 10px;
+    margin-left: 2px;
+}
+
+.pagination .dots {
+    border: none;
+}
+
+.pagination a {
+    color: rgb(128, 128, 255);
+    font-family: "Open Sans", sans-serif;
+    font-size: 0.94rem;
+    text-decoration: none;
+}
+
+/*   footer area *************************************  */
+
+footer {
+    margin-top: 40px;
+    background-color: rgb(238, 238, 255);
+    border: 2px solid #ddd7ff;
+    border-bottom-color: orange;
+    border-bottom-width: 3px;
+    border-radius: 10px;
+}
+
+footer .well {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 12px 160px;
+}
+
+.well h3 {
+    color: rgb(49, 161, 64);
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.4rem;
+    border-bottom: 1px solid grey;
+    margin: 0;
+    padding: 0 48px 0 8px;
+}
+
+.footer-text {
+    padding: 8px 2px 2px 32px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: normal;
+    font-size: 0.9rem;
+}
+
+.well a {
+    text-decoration: none;
+}

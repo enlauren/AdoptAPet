@@ -1,0 +1,6 @@
+{% extends 'base.html.twig' %}
+{% block main %}
+    {% include 'ads/header_leaderboard.html.twig' %}
+    <h1>{% trans %}Anunturi Adoptii Caini si Pisici{% endtrans %}</h1>
+    {% include "listing/render.html.twig" %}
+{% endblock %}

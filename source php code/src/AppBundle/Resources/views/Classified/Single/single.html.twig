@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+    {{ classified|view('single', {'messageForm': messageForm}) }}
+
+    {% include 'partials/related/pisici.html.twig' %}
+    {% include 'partials/related/caini.html.twig' %}
+{% endblock %}
+
+{% block head %}
+{% if classified.canonical %}
+    <link rel="canonical" href="{{ classified.canonical|url }}">
+{% endif %}
+{% endblock %}
+
+{% block sidebar %}
+    <h3>{{ 'Latest ads'|trans }}</h3>
+    {% for classified in latestClassifieds %}
+        {{ classified|view('sidebar') }}
+    {% endfor %}
+{% endblock %}
+
+{% block javascript %}
+    {{ parent() }}
+    {# todo remove this js from here #}
+    <script type="text/javascript">
+        $( function() {
+            $('.popup-gallery').magnificPopup({
+                delegate: 'a',
+                type: 'image',
+                tLoading: 'Loading image #%curr%...',
+                mainClass: 'mfp-img-mobile',
+                gallery: {
+                    enabled: true,
+                    navigateByImgClick: true,
+                },
+                image: {
+                    tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
+                    titleSrc: function(item) {
+                        return item.el.attr('title') + '<small>Adoptaunsuflet.ro</small>';
+                    }
+                },
+                zoom: {
+                    enabled: true,
+                    duration: 300, // don't foget to change the duration also in CSS
+                    opener: function(element) {
+                        return element.find('img');
+                    }
+                }
+            });
+
+            $('.infot').tooltip();
+        });
+    </script>
+{% endblock %}
