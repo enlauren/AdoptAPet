@@ -1,3 +1,0 @@
-services:
-    captcha_validator:
-        class: App\AppBundle\Services\Captcha\CaptchaFakeValidator

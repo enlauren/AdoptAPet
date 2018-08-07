@@ -1,4 +1,0 @@
-{% for cityName, cityClassified in relatedClassifiedsDogs %}
-    <h2>{% trans with {'%city%': cityName} %}Related Dogs from %city%{% endtrans %}</h2>
-    {{ cityClassified|view('listing_view') }}
-{% endfor %}

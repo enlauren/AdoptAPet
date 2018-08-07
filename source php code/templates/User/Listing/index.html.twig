@@ -1,8 +1,0 @@
-{% extends 'base.html.twig' %}
-
-{% block main %}
-    <h1>
-        {% trans with {'%user%': user.email} %}User %user% ads{% endtrans %}
-    </h1>
-    {% include "listing/render.html.twig" with { 'classifieds': classifieds } %}
-{% endblock %}

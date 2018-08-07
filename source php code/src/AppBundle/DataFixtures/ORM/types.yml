@@ -1,7 +1,0 @@
-App\AppBundle\Entity\Type:
-    type_cat:
-        name: 'Pisica'
-        slug: 'pisici'
-    type_dog:
-        name: 'Caine'
-        slug: 'caini'

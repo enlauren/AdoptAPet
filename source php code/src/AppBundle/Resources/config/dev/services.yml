@@ -1,6 +1,0 @@
-services:
-    captcha_validator:
-        class: App\AppBundle\Services\Captcha\CaptchaFakeValidator
-
-    mailer:
-        class: App\AppBundle\Services\MailerDummy
