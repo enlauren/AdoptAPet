@@ -278,7 +278,8 @@ section {
 }
 
 .posts img {
-    width: 100%;
+    height: 265px;
+    width: 265px;
 }
 .posts h4 {
     font-weight: normal;
